@@ -1,0 +1,41 @@
+name: Download Swagger Files 🚀
+
+on:
+  workflow_dispatch:  # Manual trigger (can add push/pr/schedule if needed)
+
+jobs:
+  download-swagger:
+    runs-on: ubuntu-latest
+
+    env:
+      BASE_URL: apigateways-z10-<ENV>.amla.io
+      APPS: |
+        customapi
+        customtable
+        znodeengineapiv2
+        cpapi
+        paymentmanager
+        shippingmanager
+        ReportsApi
+      ENVIRONMENTS: |
+        QA
+        Sandbox
+
+    steps:
+      - name: 🏗️ Set up directory structure
+        run: |
+          mkdir -p project
+          for ENV in $ENVIRONMENTS; do
+            mkdir -p project/$ENV
+          done
+
+      - name: 📥 Download Swagger files dynamically
+        run: |
+          for ENV in $ENVIRONMENTS; do
+            # convert to lowercase for the subdomain part of the URL
+            ENV_LOWER=$(echo "$ENV" | tr '[:upper:]' '[:lower:]')
+            for APP in $APPS; do
+              echo "Downloading $APP Swagger for $ENV environment..."
+              curl -s -o project/$ENV/${APP}.json https://apigateways-z10-${ENV_LOWER}.amla.io/swagger/${APP}/swagger.json
+            done
+          done
