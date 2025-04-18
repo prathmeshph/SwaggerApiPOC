@@ -57,7 +57,6 @@ jobs:
           echo ""
           echo "📄 Detailed file structure:"
           ls -lR  # Recursive list, shows everything in all folders
-          cat ./project/QA/ReportsApi.json
 
 
 
