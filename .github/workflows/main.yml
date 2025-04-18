@@ -1,4 +1,4 @@
-name: Download Swagger Files 🚀
+name: Swagger Files POC
 
 on:
   workflow_dispatch:  # Manual trigger (can add push/pr/schedule if needed)
@@ -22,17 +22,16 @@ jobs:
         Sandbox
 
     steps:
-      - name: 🏗️ Set up directory structure
+      - name: Create/ Set up directory structure
         run: |
           mkdir -p project
           for ENV in $ENVIRONMENTS; do
             mkdir -p project/$ENV
           done
 
-      - name: 📥 Download Swagger files dynamically
+      - name: Download Swagger files
         run: |
           for ENV in $ENVIRONMENTS; do
-            # convert to lowercase for the subdomain part of the URL
             ENV_LOWER=$(echo "$ENV" | tr '[:upper:]' '[:lower:]')
             for APP in $APPS; do
               echo "Downloading $APP Swagger for $ENV environment..."
@@ -40,22 +39,22 @@ jobs:
             done
           done
           
-      - name: 📂 Show downloaded Swagger files environment-wise
+      - name: Show downloaded Swagger files environment-wise
         run: |
-          echo "✅ Swagger files downloaded in the following structure:"
+          echo "Swagger files downloaded in the following structure:"
           for ENV in $ENVIRONMENTS; do
             echo ""
-            echo "🔹 Environment: $ENV"
-            ls -1 project/$ENV || echo "⚠️ No files found in project/$ENV"
+            echo "Environment: $ENV"
+            ls -1 project/$ENV || echo " No files found in project/$ENV"
           done
 
-      - name: 🧪 Debug Info - Show Working Directory and File Structure
+      - name:  Debug Info - Show Working Directory and File Structure
         run: |
-          echo "📌 Current working directory:"
+          echo " Current working directory:"
           pwd
           
           echo ""
-          echo "📄 Detailed file structure:"
+          echo " Detailed file structure:"
           ls -lR  # Recursive list, shows everything in all folders
 
 
