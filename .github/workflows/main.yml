@@ -39,3 +39,14 @@ jobs:
               curl -s -o project/$ENV/${APP}.json https://apigateways-z10-${ENV_LOWER}.amla.io/swagger/${APP}/swagger.json
             done
           done
+          
+      - name: 📂 Show downloaded Swagger files environment-wise
+        run: |
+          echo "✅ Swagger files downloaded in the following structure:"
+          for ENV in $ENVIRONMENTS; do
+            echo ""
+            echo "🔹 Environment: $ENV"
+            ls -1 project/$ENV || echo "⚠️ No files found in project/$ENV"
+          done
+
+        
