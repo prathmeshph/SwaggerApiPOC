@@ -63,7 +63,7 @@ jobs:
 
       - name: ✅ Verify openapi-changes installation
         run: |
-          openapi-changes version
+          openapi-changes --help
 
 
 
