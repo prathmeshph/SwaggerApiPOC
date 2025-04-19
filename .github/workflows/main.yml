@@ -96,7 +96,7 @@ jobs:
 
       - name: Re-zip swagger report
         run: |
-          cd swagger-reports
+          cd ./swagger-reports
           ls -l
 
       - name: Send reports via email
