@@ -110,17 +110,17 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "📝 Swagger Diff Reports"
-          to: phande514@gmail.com
+          to: phande514@gmail.com, nikhilmeshram66@gmail.com, amazonprime15678@gmail.com
           from: Swagger Reports Bot <${{ secrets.EMAIL_USERNAME }}>
           body: |
-            Hello 👋,
+            Hello Nikhil,
 
             The latest OpenAPI Swagger change reports are attached 📎.
 
             ✅ No need to open GitHub — everything is right here!
 
             Regards,  
-            Swagger Reports Bot 🤖
+            Prathmesh Hande 🤖
           attachments: |
             ./swagger-reports/swagger-reports.zip
 
