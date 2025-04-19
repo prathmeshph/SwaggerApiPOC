@@ -99,6 +99,7 @@ jobs:
         run: |
           cd ./swagger-reports
           ls -l
+          zip -r swagger-reports.zip .
 
       - name: Send reports via email
         uses: dawidd6/action-send-mail@v3
