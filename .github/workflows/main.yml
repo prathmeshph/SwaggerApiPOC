@@ -93,8 +93,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: swagger-reports
-          path: ./swagger-reports
-          extract: false
+
+      - name: Re-zip swagger report
+        run: |
+          cd swagger-reports
+          ls -l
 
       - name: Send reports via email
         uses: dawidd6/action-send-mail@v3
