@@ -57,6 +57,14 @@ jobs:
           echo " Detailed file structure:"
           ls -lR  # Recursive list, shows everything in all folders
 
+      - name: 🔧 Install openapi-changes CLI
+        run: |
+          curl -fsSL https://pb33f.io/openapi-changes/install.sh | sh
+
+      - name: ✅ Verify openapi-changes installation
+        run: |
+          openapi-changes version
+
 
 
         
