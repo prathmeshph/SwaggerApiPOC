@@ -65,6 +65,20 @@ jobs:
         run: |
           openapi-changes --help
 
+      # New step to create reports directory
+      - name: Create Reports directory
+        run: |
+          mkdir -p project/reports
+
+      # New task to generate reports for each application
+      - name: Generate Swagger Change Reports for each Application
+        run: |
+          for APP in $APPS; do
+            echo "Generating report for $APP..."
+
+            # Use openapi-changes to generate the report for each app
+            openapi-changes html-report project/QA/${APP}.json project/Sandbox/${APP}.json && mv report.html project/reports/${APP}_report.html
+          done
 
 
         
