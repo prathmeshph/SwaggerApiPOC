@@ -109,8 +109,6 @@ jobs:
               
                 Regards,  
                 DevOps Auto-Mailer
-          attachments: |
-            project/reports/*.html
 
       # - name: Send reports via email
       #   uses: dawidd6/action-send-mail@v3
