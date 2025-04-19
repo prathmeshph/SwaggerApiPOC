@@ -105,7 +105,7 @@ jobs:
                 Hello 👋,
               
                 The latest OpenAPI Swagger change reports are available!  
-                👉 [Download from GitHub Artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+                👉 [Download from GitHub Artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}), (https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/swagger-reports)
               
                 Regards,  
                 DevOps Auto-Mailer
