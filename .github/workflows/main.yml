@@ -80,5 +80,9 @@ jobs:
             openapi-changes html-report project/QA/${APP}.json project/Sandbox/${APP}.json && mv report.html project/reports/${APP}_report.html
           done
 
-
+      # New task to list the reports folder
+      - name: List contents of reports folder
+        run: |
+          echo "Listing files in the reports folder:"
+          ls -l ./project/reports
         
