@@ -83,7 +83,7 @@ jobs:
           echo "Listing files in the reports folder:"
           ls -l ./project/reports
 
-      - name: 📤 Upload Swagger Reports to GitHub Artifacts
+      - name: Upload Swagger Reports to GitHub Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: swagger-reports
@@ -109,18 +109,16 @@ jobs:
           secure: true
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "📝 Swagger Diff Reports"
+          subject: "Swagger Change Reports for QA with Sandbox"
           to: phande514@gmail.com, nikhilmeshram66@gmail.com, amazonprime15678@gmail.com
           from: Swagger Reports Bot <${{ secrets.EMAIL_USERNAME }}>
           body: |
-            Hello Nikhil,
-
-            The latest OpenAPI Swagger change reports are attached 📎.
-
-            ✅ No need to open GitHub — everything is right here!
+            Greetings,
+            The OpenAPI Comparison Swagger changes reports for QA with Sandbox are attached along with this email📎.
+            PFA
 
             Regards,  
-            Prathmesh Hande 🤖
+            Nikhil Meshram.
           attachments: |
             ./swagger-reports/swagger-reports.zip
 
