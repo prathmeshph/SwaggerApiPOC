@@ -77,7 +77,7 @@ jobs:
           path: dacpac-out
 
   deploy_multifront_db:
-    runs-on: [self-hosted, ${{ github.event.inputs.runner_name }}]
+    runs-on: ${{ format('self-hosted,{0}', github.event.inputs.runner_name) }}
     needs: build_multifront_db
     if: ${{ github.event.inputs.multifront_db == 'true' }}
 
