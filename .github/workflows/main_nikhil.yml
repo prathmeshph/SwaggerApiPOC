@@ -136,7 +136,7 @@ jobs:
           path: dacpac-out
 
   deploy_hangfire_db:
-    runs-on: [self-hosted, ${{ github.event.inputs.runner_name }}]
+    runs-on: ${{ format('self-hosted,{0}', github.event.inputs.runner_name) }}
     needs: build_hangfire_db
     if: ${{ github.event.inputs.hangfire_db == 'true' }}
 
@@ -195,7 +195,7 @@ jobs:
           path: dacpac-out
 
   deploy_recommendation_db:
-    runs-on: [self-hosted, ${{ github.event.inputs.runner_name }}]
+    runs-on: ${{ format('self-hosted,{0}', github.event.inputs.runner_name) }}
     needs: build_recommendation_db
     if: ${{ github.event.inputs.recommendation_db == 'true' }}
 
@@ -254,7 +254,7 @@ jobs:
           path: dacpac-out
 
   deploy_payment_manager_db:
-    runs-on: [self-hosted, ${{ github.event.inputs.runner_name }}]
+    runs-on: ${{ format('self-hosted,{0}', github.event.inputs.runner_name) }}
     needs: build_payment_manager_db
     if: ${{ github.event.inputs.payment_manager_db == 'true' }}
 
